@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eNote</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <div id="topbar">
+        <div class="logo">
+          <!-- <img src="your-logo.png" alt="Logo"> -->
+          <h1>eNote</h1>
+        </div>
+        <button class="openbtn" onclick="toggleNav()"><i class="fas fa-bars"></i></button>
+      </div>
+
+<div id="mySidebar" class="sidebar">
+
+  <a href="#"><i class="fas fa-pen"></i>Notes</a>
+  <a href="#"><i class="fas fa-heart"></i>Favorites</a>
+  <a href="#"><i class="fas fa-archive"></i>Archived</a>
+  <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+</div>
+
+<div id="main">
+  <h2>Note Details</h2>
+</div>
+<script>
+function toggleNav() {
+  var sidebar = document.getElementById("mySidebar");
+  var topbar = document.getElementById("topbar");
+  var main = document.getElementById("main");
+  
+  // Get the computed left position of the sidebar
+  var sidebarLeft = window.getComputedStyle(sidebar).left;
+  
+  if (sidebarLeft === "0px") {
+    sidebar.style.left = "-250px"; /* Slide the sidebar off-screen */
+    topbar.style.marginLeft = "0";
+    main.style.marginLeft = "0";
+  } else {
+    sidebar.style.left = "0"; /* Slide the sidebar back into view */
+    // topbar.style.marginLeft = "250px";
+    main.style.marginLeft = "250px";
+  }
+}
+</script>
+   
+</body>
+</html>

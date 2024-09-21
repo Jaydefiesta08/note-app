@@ -1,0 +1,397 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #cecdcd;
+ 
+}
+
+#topbar {
+    background-color: #171c33;
+  transition: background-image 0.3s ease; 
+  transition: margin-left 0.5s;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  width: 100%; /* Full width */
+  position: fixed; /* Fixed position */
+  top: 0; /* Positioned at the top */
+  z-index: 2; /* Ensure the top bar is above the sidebar */
+}
+.logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 30px; /* Adjust the size of the logo image as needed */
+    height: auto;
+    margin-right: 5px; /* Add some spacing between the logo and logo name */
+    margin-left: 20px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+    margin: 0; /* Remove default margin */
+    margin-left: 20px;
+  }
+  .sidebar {
+    height: calc(100% - 60px); /* Height adjusted to leave space for top bar */
+    width: 250px; /* Initial width of the sidebar */
+    position: fixed;
+    z-index: 1;
+    top: 60px; /* Positioned below the top bar */
+    left: 0;
+    background-color: #304674;
+    box-shadow: 0 0 10px rgba(48, 60, 94, 0.8); /* Add a box shadow */
+    transition: background-image 0.3s ease; 
+    overflow-x: hidden;
+    transition: left 0.5s; /* Slide animation transition */
+    padding-top: 10px; /* Adjusted padding for alignment */
+  }
+  .welcome-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+.welcome-message .fa-user{
+  font-size: 30px;
+  margin-right: 20px;
+}
+.sidebar a i {
+  margin-right: 10px;
+  transition: color 0.1s ease, font-size 0.3s ease; /* Smooth transition for text color and size */
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a.active {
+  background-color:#27315a;
+  color: #00ff80;
+  font-weight: bold; /* Example font weight for active link */
+}
+.sidebar a:hover {
+  color: #00ff80;
+  background-color:#27315a;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 250px; /* Adjusted margin when sidebar is open */
+    margin-top: 60px; /* Adjusted margin to avoid overlapping with the top bar */
+  }
+.notebook-container h2{
+    background-color:transparent;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
+    border-radius: 10px;
+    padding: 10px;
+    width: 20%;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.header button {
+  margin-left: auto; /* Push the button to the right */
+  background-color: #00ff80;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  width: 10%;
+  border: none;
+  cursor: pointer;
+}
+.openbtn {
+  font-size: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border: none;
+  margin-left: 100px; /* Initial margin-left set to 0 */
+}
+
+.openbtn:hover {
+    color: #00ff80;
+}
+
+
+
+.notebook-container {
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    margin: 0 auto;
+  
+  }
+  .note_form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* Form background color */
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 40px 10px;
+    width: 50%;
+    display: none;
+    z-index: 1000; /* Set a higher z-index */
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Ensure it's below the form */
+    display: none; /* Initially hidden */
+}
+#closeButton {
+    position: absolute;
+    top: -5px;
+    left:320px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #333; /* Change color as needed */
+}
+
+#closeButton:hover {
+    color: #000; /* Change color on hover as needed */
+}
+
+  
+  label {
+    font-weight: bold;
+  }
+  input[type="text"] {
+    padding: 10px; /* Adjust the padding as needed */
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .note_form button {
+    background-color: #00ff80;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto; /* Center the button horizontally */
+    display: block; /* Ensure the button occupies the entire width */
+    width:100%; /* Adjust the width to fit the content */
+  }
+  
+  .note_form button:hover {
+    background-color: #00cc66;
+    color: #fff;
+  }
+  .note-card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+    gap: 10px; /* Gap between grid items */
+  }
+  
+ 
+  /* Note card styles */
+.note-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  height: 60vh;
+}
+
+.note-card h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 8 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-wrap: break-word; /* Wrap long words */
+}
+
+.note-card p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; /* Limit to 8 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-wrap: break-word; /* Wrap long words */
+}
+
+.note-card .note-text {
+  height: 130px; /* Adjust the height as needed */
+  overflow: hidden;
+}
+  .note-card .time-stamp {
+    color: #999;
+    font-size: 12px;
+  }
+
+  .note-card a {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  .note-card i{
+    margin: 0 auto;
+  }
+  .note-card .fa-edit{
+   color:#00cc66;
+  }
+  .note-card .fa-eye{
+    color:#304674;
+   }
+   
+  .note-card a:hover {
+    text-decoration: underline;
+  }
+  .note-card .break-line {
+    border-top: 1px solid #00ff80; /* Color of the break line */
+    margin: 5px 0; /* Adjust spacing */
+  }
+
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.search-bar input[type="text"] {
+    flex: 1; /* Take up remaining space */
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 40px; /* Set the height of the input field */
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #00cc66;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px; 
+    transform: translateY(-4px);
+}
+
+.search-bar button:hover {
+    background-color: #0056b3; /* Darker shade of blue */
+}
+
+  
+/* Add styles for the success and error messages */
+.success-message {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: none; /* Initially hidden */
+  }
+  
+  .error-message {
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: none; /* Initially hidden */
+  }
+  
+  .favorite-added-message, .archived-added-message{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); 
+    display: none;
+    background-color: green;
+    color: white; 
+    padding: 10px; 
+    border-radius: 5px;
+    z-index: 9999; 
+}
+
+.favorite-removed-message, .archived-removed-message {
+    position: fixed; 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%);
+    display: none; 
+    background-color: rgb(128, 0, 0); 
+    color: white;
+    padding: 10px; 
+    border-radius: 5px; 
+    z-index: 9999;
+}
+
+
+/* Show the messages when their respective classes are applied */
+.favorite-added-message.show,
+.favorite-removed-message.show,
+.archived-added-message.show,
+.archived-removed-message.show {
+    display: block;
+}
+
+
+  
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  
+  .sidebar a {
+    font-size: 18px;
+  }
+}
